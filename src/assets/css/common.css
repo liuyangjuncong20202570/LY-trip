@@ -1,0 +1,29 @@
+body{
+  font-size: 14px;
+}
+/* css中定义变量 */
+:root{
+  --primaryColor:#f39854;
+  --van-search-left-icon-color:var(--primaryColor) !important;
+  --theme-linear-gradient:linear-gradient(90deg, #fa8c1d, #fcaf3f);
+  --van-primary-color:#f39854
+}
+/* 通过样式来使tabbar进行隐藏 */
+.top-page{
+  /* 在相对定位的情况下可设定z-index */
+  position: relative;
+  z-index: 9;
+  /* 设定整个div的背景颜色为白色 */
+  background-color: #fff;
+  /* 设定当前可视区域高度 */
+  height:100vh;
+  /* 使所有内容都只能在可视区域盒子内活动 */
+  overflow-y: auto;
+}
+
+.icon_check {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: url('@/assets/img/detail/icon_check.png') 0 0 / 100% 100%;
+}
