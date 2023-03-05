@@ -6,7 +6,8 @@ body{
   --primaryColor:#f39854;
   --van-search-left-icon-color:var(--primaryColor) !important;
   --theme-linear-gradient:linear-gradient(90deg, #fa8c1d, #fcaf3f);
-  --van-primary-color:#f39854
+  --van-primary-color:#f39854;
+  --van-font-bold:unset;
 }
 /* 通过样式来使tabbar进行隐藏 */
 .top-page{
@@ -26,4 +27,19 @@ body{
   width: 12px;
   height: 12px;
   background: url('@/assets/img/detail/icon_check.png') 0 0 / 100% 100%;
+}
+
+.ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.text-1{ 
+  -webkit-line-clamp: 1
+}
+
+.text-2{
+  -webkit-line-clamp: 2;
 }
