@@ -3,7 +3,7 @@
     <div class="left">
       <van-icon size="20" name="arrow-left" />
       <slot name="leftwrite">
-        <span>文本</span>
+        <span></span>
       </slot>
     </div>
     <div class="content">
@@ -27,13 +27,21 @@
   background-color: #fff;
   justify-content: space-between;
   .left {
+    width: 80px;
+    display: flex;
+    align-items: center;
+  }
+  .content {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .content {
-    position: relative;
-    left: -12px;
+  .right {
+    display: flex;
+    width: 80px;
+    align-items: center;
+    justify-content: flex-end;
   }
 }
 </style>

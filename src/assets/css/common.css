@@ -1,23 +1,23 @@
-body{
+body {
   font-size: 14px;
 }
 /* css中定义变量 */
-:root{
-  --primaryColor:#f39854;
-  --van-search-left-icon-color:var(--primaryColor) !important;
-  --theme-linear-gradient:linear-gradient(90deg, #fa8c1d, #fcaf3f);
-  --van-primary-color:#f39854;
-  --van-font-bold:unset;
+:root {
+  --primaryColor: #f39854;
+  --van-search-left-icon-color: var(--primaryColor) !important;
+  --theme-linear-gradient: linear-gradient(90deg, #fa8c1d, #fcaf3f);
+  --van-primary-color: #f39854;
+  --van-font-bold: unset;
 }
 /* 通过样式来使tabbar进行隐藏 */
-.top-page{
+.top-page {
   /* 在相对定位的情况下可设定z-index */
   position: relative;
   z-index: 9;
   /* 设定整个div的背景颜色为白色 */
   background-color: #fff;
   /* 设定当前可视区域高度 */
-  height:100vh;
+  height: 100vh;
   /* 使所有内容都只能在可视区域盒子内活动 */
   overflow-y: auto;
 }
@@ -29,17 +29,21 @@ body{
   background: url('@/assets/img/detail/icon_check.png') 0 0 / 100% 100%;
 }
 
-.ellipsis{
+.ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
 
-.text-1{ 
-  -webkit-line-clamp: 1
+.text-1 {
+  -webkit-line-clamp: 1;
 }
 
-.text-2{
+.text-2 {
   -webkit-line-clamp: 2;
+}
+
+img {
+  vertical-align: top;
 }

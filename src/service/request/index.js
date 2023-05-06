@@ -10,20 +10,20 @@ class LyRequest {
     })
     // 给axios实例设定请求、拦截器用于设定是否显示加载动画
     this.instance.interceptors.request.use(
-      (config) => {
+      config => {
         mainStore.isLoading = true
         return config
       },
-      (err) => {
+      err => {
         return err
       }
     )
     this.instance.interceptors.response.use(
-      (config) => {
+      config => {
         mainStore.isLoading = false
         return config
       },
-      (err) => {
+      err => {
         mainStore.isLoading = false
         return err
       }
@@ -33,10 +33,10 @@ class LyRequest {
     return new Promise((resolve, reject) => {
       this.instance
         .request(config)
-        .then((res) => {
+        .then(res => {
           resolve(res.data)
         })
-        .catch((err) => {
+        .catch(err => {
           reject(err)
         })
     })
