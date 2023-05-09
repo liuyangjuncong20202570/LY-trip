@@ -2,7 +2,17 @@
   <div class="order-item">
     <div class="top">
       <div class="left">{{ orderItem.unitName }}</div>
-      <div class="right">{{ orderItem.orderStatusDesc }}</div>
+      <div v-if="orderItem.cancelReasonCode === 0" class="right">
+        {{ orderItem.orderStatusDesc }}
+      </div>
+      <div
+        :style="{ color: orderItem.orderStatusDescColor }"
+        v-if="orderItem.cancelReasonCode === 1"
+        class="right"
+      >
+        <span class="desc">{{ orderItem.orderStatusDesc }}</span>
+        <span class="reason">{{ orderItem.cancelReasonDesc }}</span>
+      </div>
     </div>
     <div class="center">
       <img :src="orderItem.unitPicture" alt="" class="avatar" />
@@ -49,8 +59,17 @@
         </div>
       </div>
       <div class="right">
-        <van-button type="primary">联系房东</van-button>
-        <van-button type="primary">去支付</van-button>
+        <!-- <van-button type="primary">联系房东</van-button>
+        <van-button type="primary">去支付</van-button> -->
+        <!-- <div class="btn landlord">联系房东</div>
+        <div class="btn payment">去支付</div> -->
+        <div v-if="orderItem.orderStatus === 1" class="btn connect">
+          联系房东
+        </div>
+        <div v-if="orderItem.orderStatus === 1" class="btn pay">去支付</div>
+
+        <div v-if="orderItem.orderStatus === 5" class="btn delete">删除</div>
+        <div v-if="orderItem.orderStatus === 5" class="btn order">再次预定</div>
       </div>
     </div>
   </div>
@@ -100,7 +119,9 @@ onMounted(() => {
 
 <style lang="less" scoped>
 .order-item {
-  padding: 10px 25px 50px;
+  background-color: #fff;
+  padding: 10px 25px 10px;
+  margin-bottom: 20px;
   .top {
     display: flex;
     justify-content: space-between;
@@ -116,6 +137,10 @@ onMounted(() => {
       font-size: 18px;
       color: var(--primaryColor);
       justify-content: flex-end;
+      align-items: center;
+      .reason {
+        font-size: 12px;
+      }
     }
   }
 
@@ -138,7 +163,7 @@ onMounted(() => {
       display: flex;
       color: #fff;
       align-items: center;
-      padding: 5px 20px;
+      padding: 5px 10px;
       justify-content: space-between;
       .left {
         width: 60%;
@@ -171,6 +196,7 @@ onMounted(() => {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
         &::before {
           content: '';
           position: absolute;
@@ -192,6 +218,7 @@ onMounted(() => {
   }
 
   .bottom {
+    width: 336px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -205,6 +232,32 @@ onMounted(() => {
           width: 11px;
           height: 11px;
           margin-right: 3px;
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      .btn {
+        margin-left: 6px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 30px;
+        color: #666;
+        width: 60px;
+        height: 30px;
+        padding: 1px 6px;
+        border-radius: 6px;
+        border: 1px solid #e9e9e9;
+
+        &.pay {
+          color: #fff;
+          background-color: var(--primaryColor);
+        }
+
+        &.order {
+          color: var(--primaryColor);
+          border: 1px solid var(--primaryColor);
         }
       }
     }

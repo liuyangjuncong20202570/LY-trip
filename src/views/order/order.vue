@@ -42,6 +42,8 @@ orderStore.fetchOrderList('all')
 
 <style lang="less" scoped>
 .order {
+  background-color: #f7f8fb;
+  padding-bottom: 25px;
   .title {
     font-size: 16px;
   }

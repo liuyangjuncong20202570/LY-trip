@@ -38,6 +38,7 @@ const tabbarClick = (index) => {
 
 <style lang="less" scoped>
 .tabbar {
+  background-color: #fff;
   display: flex;
   height: 40px;
   .item {
